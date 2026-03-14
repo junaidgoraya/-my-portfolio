@@ -21,3 +21,17 @@ This is my personal portfolio website showcasing my skills, projects, and experi
 - **Deployment:** Vercel
 
 ## 📂 Project Structure
+     my-portfolio/
+├── src/
+│ ├── components/
+│ ├── assets/
+│ └── lib/
+├── public/
+└── ...
+
+## 📬 Contact
+- **Email:** junaidgoraya184@gmail.com
+- **LinkedIn:** [Muhammad Junaid](https://www.linkedin.com/in/muhammad-junaid-50a503394/)
+- **GitHub:** [@junaidgoraya](https://github.com/junaidgoraya)
+
+        _________________________________________________________________________________________________________
