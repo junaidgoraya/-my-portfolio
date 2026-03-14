@@ -1,7 +1,5 @@
 # 🚀 My Portfolio Website
 
-![Portfolio Banner](link-to-image-optional)
-
 ## 🌐 Live Demo
 **[Visit My Portfolio](https://my-portfolio-steel-one.vercel.app)**
 
