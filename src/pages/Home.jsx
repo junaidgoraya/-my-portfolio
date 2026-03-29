@@ -57,7 +57,7 @@ export default function Home() {
                 </div>
 
                 <div className="glass-card rounded-3xl md:rounded-[2rem] border border-slate-200 dark:border-white/10 overflow-hidden flex flex-col">
-                    <InfoRow icon="mail" label="Email Address:" value="junaidgoraya184@gmail.com " />
+                    <InfoRow icon="mail" label="Email Address:" value="junaidgoraya184@gmail.com" />
                     <InfoRow icon="work" label="Professional Title:" value="Web Developer" />
                     <InfoRow icon="public" label="Languages:" value="English, Urdu" />
                     <InfoRow icon="flag" label="Nationality:" value="Pakistan" />
@@ -66,22 +66,23 @@ export default function Home() {
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 mb-16">
-                <a href="/resume.pdf" download className="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white px-6 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors text-sm md:text-base">
+                <a href="/Muhammad-Junaid-Resume.pdf" download="Muhammad-Junaid-Resume.pdf" className="bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white px-6 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors text-sm md:text-base">
                     <span className="material-symbols-outlined text-[20px] md:text-[24px]">download</span> Download Resume
                 </a>
-                <a href="/contact" className="bg-primary hover:brightness-110 text-white px-6 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/30 transition-all text-sm md:text-base">
+                <button
+                    onClick={() => document.getElementById('follow-me').scrollIntoView({ behavior: 'smooth' })}
+                    className="bg-[#00a8ff] hover:brightness-110 text-white px-6 md:px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 shadow-lg shadow-primary/30 transition-all text-sm md:text-base"
+                >
                     <span className="material-symbols-outlined text-[20px] md:text-[24px]">mail</span> Contact Me
-                </a>
+                </button>
             </div>
 
             {/* Follow Me Section */}
-            <div className="glass-card rounded-3xl p-8 md:p-12 border border-slate-200 dark:border-white/10 mb-16">
-                <h3 className="text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-10">Follow Me</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            <div id="follow-me" className="glass-card rounded-[3rem] p-8 md:p-12 border border-white/10 mb-16 shadow-2xl scroll-mt-24">
+                <h3 className="text-4xl font-bold text-center text-white mb-10 tracking-tight">Follow Me</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     <SocialBtn icon="work" label="LinkedIn" href="https://www.linkedin.com/in/muhammad-junaid-50a503394/" />
-                    <SocialBtn icon="share" label="Twitter" href="#" />
                     <SocialBtn icon="code" label="GitHub" href="https://github.com/junaidgoraya" />
-                    <SocialBtn icon="play_arrow" label="YouTube" href="#" />
                 </div>
             </div>
 
