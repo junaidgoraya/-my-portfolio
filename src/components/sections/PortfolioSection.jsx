@@ -1,15 +1,28 @@
 import aiLearningImg from "../../assets/ai-learning.png";
 import ecommerceImg from "../../assets/ecommerce.png";
 import doctorAppImg from "../../assets/doctor-app.png";
+import trustcomImg from "../../assets/trustcom.png";
 
 export default function PortfolioSection() {
     const projects = [
         {
+            id: 4,
+            title: "TrustCom – Committee Management",
+            category: "Full-Stack Web App",
+            image: trustcomImg,
+            description: "A full-stack Peer-to-Peer Savings Committee Management Platform with Admin Dashboard, User Dashboard, JWT Authentication, Committee Management, Payment Tracking, KYC, and Trust Score.",
+            tech: ["Next.js 14", "TypeScript", "MongoDB", "Mongoose", "NextAuth.js", "Tailwind CSS", "shadcn/ui", "Zustand", "TanStack Query", "Stripe", "Vercel"],
+            liveDemo: "https://committee-management-iacb.vercel.app",
+            github: "https://github.com/junaidgoraya",
+            featured: true
+        },
+        {
             id: 1,
             title: "AI Learning Assistant",
-            category: "Web Development",
+            category: "Full-Stack AI Web Application",
             image: aiLearningImg,
-            description: "An intelligent learning platform with integrated AI chatbot and modular curriculum management."
+            description: "An AI-powered full-stack learning platform that allows users to upload PDF documents, chat with Google Gemini AI, and generate summaries, flashcards, and quizzes automatically. The application includes secure authentication, a responsive UI, and an interactive dashboard for managing study materials.",
+            tech: ["React.js", "Tailwind CSS", "Framer Motion", "Node.js", "Express.js", "MongoDB", "Google Gemini AI", "JWT Authentication", "Axios", "Multer"]
         },
         {
             id: 2,
@@ -49,25 +62,79 @@ export default function PortfolioSection() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-16 md:mb-24">
                 {projects.map((project) => (
-                    <div key={project.id} className="flex flex-col gap-6 group glass-card p-4 rounded-[2.5rem]">
-                        <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden cursor-pointer shadow-2xl">
+                    <div 
+                        key={project.id} 
+                        className="flex flex-col h-full group relative"
+                    >
+                        {project.featured && (
+                            <div className="absolute top-3 right-3 bg-primary text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest px-2.5 sm:px-3 py-1 rounded-md z-10 shadow-lg">
+                                Featured
+                            </div>
+                        )}
+                        <div className="relative aspect-video rounded-2xl overflow-hidden glass-card cursor-pointer border border-white/10 shadow-lg shadow-black/5 group-hover:shadow-xl transition-shadow duration-300">
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                                <span className="text-primary text-xs font-bold uppercase tracking-widest mb-2">{project.category}</span>
-                                <h3 className="text-white font-bold text-xl">{project.title}</h3>
+                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 sm:p-5">
+                                <span className="text-primary text-xs font-bold uppercase tracking-widest mb-1.5">{project.category}</span>
+                                <h3 className="text-white font-bold text-base sm:text-lg">{project.title}</h3>
                             </div>
                         </div>
-                        <div className="px-2 pb-2">
-                            <h3 className="text-white font-bold text-xl mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                            <p className="text-slate-400 text-sm font-light leading-relaxed">
+                        <div className="flex flex-col flex-grow p-4 sm:p-5 glass-card border border-white/10 rounded-2xl mt-4 shadow-lg shadow-black/5">
+                            <div className="mb-3">
+                                <span className="text-primary text-[11px] sm:text-xs font-bold uppercase tracking-widest">{project.category}</span>
+                            </div>
+                            <h3 className="text-white font-bold text-base sm:text-lg mb-2 group-hover:text-primary transition-colors line-clamp-1">{project.title}</h3>
+                            <p className="text-slate-400 text-sm font-light leading-relaxed mb-4 line-clamp-3 flex-grow">
                                 {project.description}
                             </p>
+                            {project.tech && Array.isArray(project.tech) && (
+                                <div className="flex flex-wrap gap-1.5 mb-4">
+                                    {project.tech.slice(0, 4).map((tech, index) => (
+                                        <span 
+                                            key={index}
+                                            className="px-2 py-0.5 bg-white/5 text-slate-300 text-[11px] sm:text-xs font-medium rounded border border-white/10 hover:border-primary/50 transition-colors"
+                                        >
+                                            {tech}
+                                        </span>
+                                    ))}
+                                    {project.tech.length > 4 && (
+                                        <span className="px-2 py-0.5 bg-white/5 text-slate-400 text-[11px] sm:text-xs font-medium rounded border border-white/10">
+                                            +{project.tech.length - 4}
+                                        </span>
+                                    )}
+                                </div>
+                            )}
+                            {(project.liveDemo || project.github) && (
+                                <div className="flex flex-wrap gap-2 mt-auto pt-3 border-t border-white/10">
+                                    {project.liveDemo && (
+                                        <a 
+                                            href={project.liveDemo} 
+                                            target="_blank" 
+                                            rel="noreferrer"
+                                            className="flex items-center gap-1.5 bg-primary hover:bg-primary/90 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all shadow-md shadow-primary/20 hover:shadow-lg"
+                                        >
+                                            <span className="material-symbols-outlined text-sm">external_link</span>
+                                            Live Demo
+                                        </a>
+                                    )}
+                                    {project.github && (
+                                        <a 
+                                            href={project.github} 
+                                            target="_blank" 
+                                            rel="noreferrer"
+                                            className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all border border-white/20"
+                                        >
+                                            <span className="material-symbols-outlined text-sm">code</span>
+                                            GitHub
+                                        </a>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
